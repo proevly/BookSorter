@@ -1,0 +1,28 @@
+package Patikaodev;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+public class Main {
+    public static void main(String[] args) {
+        TreeSet<Book> list = new TreeSet<>();
+        list.add(new Book("Fatih-i Harbiye",280,"Peyami Safa",1910-10-10));
+        list.add(new Book("1984",500,"George Orwell",1926-01-19));
+        list.add(new Book("Hayvan Çiftligi",270,"George Orwell",1930-06-01));
+        list.add(new Book("Sefiller",600,"Victor Hugo",1947-07-07));
+        list.add(new Book("Kumarbaz",478,"Dostyoveski",1899-01-10));
+        for(Book s:list){
+            System.out.println(s.getBookName());
+        }
+        Set<Book> numberList = new TreeSet<>(new Comparator<Book>() {
+        @Override
+        public int compare(Book o1, Book o2) {
+            return o1.getPagesNumber()-o2.getPagesNumber();
+        }
+        });
+        numberList.addAll(list);
+
+        for(Book o2:numberList){
+            System.out.println(o2.getPagesNumber());
+        }
+    }
+}
